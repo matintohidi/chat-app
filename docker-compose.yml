@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  # database
+  mongodb:
+    container_name: chat-app-database
+    image: mongo:5.0
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $MONGODB_USERNAME
+      MONGO_INITDB_ROOT_PASSWORD: $MONGODB_PASSWORD
+    ports:
+      - $MONGODB_LOCAL_PORT:$MONGODB_DOCKER_PORT
+    volumes:
+      - db:/data/db
+    env_file:
+      - ./.env
+  # nodejs server
+  server:
+    container_name: chat-app-server
+    build:
+      context: ./chat-app-server
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    env_file:
+      - ./.env
+    stdin_open: true
+    tty: true
+    depends_on:
+      - mongodb
+  # react app
+  client:
+    container_name: chat-app-client
+    build:
+      context: ./chat-app-client
+    ports:
+      - $REACT_LOCAL_PORT:$REACT_DOCKER_PORT
+    env_file:
+      - ./.env
+    stdin_open: true
+
+volumes:
+  db:
