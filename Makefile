@@ -1,20 +1,14 @@
-say_hello:
-	@echo "starting chat app project"
-
-make_back:
-	@git clone https://github.com/matintohidi/chat-app-server.git
-
-make_front:
-	@git clone https://github.com/matintohidi/chat-app-client.git
-
-setup_docker:
-	@docker compose build
-
-start_docker:
-	@docker compse up -d
-
 init_env:
 	@mv .env.example .env
+	
+default:
+	docker ps
 
-install_npm_packages:
-	@docker compose exec server bin/bash npm install
+devdown:
+	docker-compose -f docker-compose.yml down
+
+stg:
+	docker-compose up -d
+	
+run-dev:
+	docker-compose -f docker-compose.yml up -d --build
