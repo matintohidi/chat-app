@@ -19,7 +19,11 @@ const SetProfile : React.FC = () => {
 	useEffect(() => {
         const fetchUser = async () => {
             try {
-                const getUser = await callApi().post(userRoute , { token: cookies["set-profile-token"] , tokenKey: "setProfile" });
+                const getUser = await callApi().post(userRoute , { tokenKey: "setProfile" } , {
+					headers: {
+						authorization: cookies["set-profile-token"]
+					}
+				});
 
 				setUser(getUser.data.user);
             } catch {

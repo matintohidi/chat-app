@@ -1,14 +1,17 @@
-init_env:
+init_main_env:
 	@mv .env.example .env
+
+init_main_env:
+	@mv ./chat-app-server/.env.example ./chat-app-server/.env
 	
 default:
 	docker ps
 
 devdown:
-	docker-compose -f docker-compose.yml down
+	docker-compose down
 
 stg:
 	docker-compose up -d
 	
 run-dev:
-	docker-compose -f docker-compose.yml up -d --build
+	docker-compose up -d --build

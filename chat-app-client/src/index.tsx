@@ -8,6 +8,7 @@ import { store } from "./store";
 import App from './App';
 // styles
 import "./assets/css/index.css";
+import "./assets/css/style.css"
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);

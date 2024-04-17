@@ -6,18 +6,18 @@ import AppRoutes from "./routes";
 // hooks
 import { useMatch } from "./hooks";
 // components
-import { Header , Footer } from "./components";
+import { NavbarLanding , Footer } from "./components";
 
 const App : React.FC = () => {
     const element = useRoutes(AppRoutes);
     const match = useMatch();
 
     return (
-        <>
-            { match ? null : <Header /> }
+        <div>
+            { match ? null : <NavbarLanding /> }
             { element }
             { match ? null : <Footer /> }
-        </>
+        </div>
     )
 }
 

@@ -3,7 +3,7 @@ import { withFormik } from "formik";
 import * as yup from "yup";
 // contracts
 import { LoginFormValuesInterface } from "../../../contracts/auth";
-// compoenents
+// components
 import InnerLoginForm from "../auth/innerLoginForm";
 // helpers
 import callApi from "../../../helpers/callApi";

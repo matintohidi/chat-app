@@ -1,8 +1,8 @@
 {
-    "name": "chat-app",
+    "name": "chat-life-client",
     "version": "0.1.0",
-    "private": true,
     "dependencies": {
+        "@headlessui/react": "^1.7.15",
         "@reduxjs/toolkit": "^1.8.6",
         "@testing-library/jest-dom": "^5.16.5",
         "@testing-library/react": "^13.4.0",

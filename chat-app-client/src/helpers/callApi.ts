@@ -12,7 +12,9 @@ const callApi = () => {
         (config) => {
             return config;
         },
-        (err) => Promise.reject(err)
+        (err) => {
+            throw err;
+        }
     );
 
     axiosInstance.interceptors.response.use(
@@ -29,7 +31,7 @@ const callApi = () => {
                 }
             }
             
-            return Promise.reject(err);
+            throw err;
         }
     );
 

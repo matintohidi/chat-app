@@ -16,7 +16,7 @@ const Header : React.FC = () => {
                 <ArrowLeft className="text-gray-400 hover:text-gray-800 transition lg:hidden" onClick={setDisplay} />
 
                 <div className="flex gap-2 sm:gap-4">
-                    <img src="/static/images/Frame 10.png" className="w-12 h-12 rounded-xl object-cover" />
+                    <img src="/static/images/Frame 10.png" alt="profile" className="w-12 h-12 rounded-xl object-cover" />
 
                     <div className="flex flex-col justify-between">
                         <h1 className="text-md lg:text-xl capitalize">lavern laboy</h1>

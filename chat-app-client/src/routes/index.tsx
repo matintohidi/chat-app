@@ -12,15 +12,21 @@ const AppRoutes : RouteObject[] = [
     },
     {
         path: "/login",
-        element: <Login />
+        element: <ProtectedRoute>
+            <Login />
+        </ProtectedRoute>
     },
     {
         path: "/register",
-        element: <Register />
+        element: <ProtectedRoute>
+            <Register />
+        </ProtectedRoute>
     },
     {
         path: "/setprofile",
-        element: <SetProfile />
+        element: <ProtectedRoute>
+            <SetProfile />
+        </ProtectedRoute>
     },
     {
         path: "/chat",

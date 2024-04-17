@@ -2,7 +2,7 @@ import React from 'react';
 // components
 import Member from './member';
 
-const Index : React.FC = () => {
+const Members : React.FC = () => {
     return (
         <div className="px-4 py-6 border-b">
             <div className="flex gap-x-2 items-center">
@@ -22,4 +22,4 @@ const Index : React.FC = () => {
     )
 }
 
-export default Index;
+export default Members;

@@ -27,7 +27,7 @@ exports.resizeUserPhoto = async (req , res , next) => {
 
         req.file.filename = `user-${req.body.id}.jpeg`;
 
-        sharp(req.file.buffer)
+        await sharp(req.file.buffer)
             .resize(500 , 500)
             .toFormat("jpeg")
             .jpeg({ quality: 90 })
@@ -67,7 +67,7 @@ exports.register = async (req , res , next) => {
             password: hashPassword
         })
         
-        const token = createToken(user._id , "3m" , "setProfile");
+        const token = createToken(user._id , "setProfile" , "3m");
         
         return res.status(201).json({
             token,

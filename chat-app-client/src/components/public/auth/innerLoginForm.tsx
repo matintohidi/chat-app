@@ -1,9 +1,9 @@
 // packages dependencies
-import { Form , FormikProps } from "formik";
+import { Form , FormikProps } from 'formik';
 // contracts
-import { LoginFormValuesInterface } from "../../../contracts/auth";
+import { LoginFormValuesInterface } from '../../../contracts/auth';
 // components
-import { InputAuth } from "../..";
+import { InputAuth } from '../..';
 
 const InnerLoginForm = (props: FormikProps<LoginFormValuesInterface>) => {
     return (

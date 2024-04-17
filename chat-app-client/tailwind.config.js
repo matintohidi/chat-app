@@ -1,12 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ["./src/**/*.{js,jsx,ts,tsx}"],
+    content: ["./src/**/*.{js,jsx,ts,tsx}" , "./public/index.html"],
     theme: {
         extend: {
             fontFamily: {
                 Asap: ["Asap"],
                 Inter: ["Inter"],
                 InterRegular: ["InterRegular"],
+                InterExtraBold: ["InterExtraBold"],
                 PoppinsBold: ["PoppinsBold"]
             },
             colors: {

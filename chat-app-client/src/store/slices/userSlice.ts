@@ -2,8 +2,12 @@
 import { createSlice , PayloadAction } from "@reduxjs/toolkit";
 // constracts
 import { UserValuesInterface } from "../../contracts/auth";
+// initial state interface
+interface UserInitialState {
+    user: UserValuesInterface | undefined
+}
 
-const initialState: { user: UserValuesInterface | undefined } = {
+const initialState: UserInitialState = {
     user: undefined
 }
 

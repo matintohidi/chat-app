@@ -7,15 +7,15 @@ import { Home2 , Chart21 , Message , SearchNormal , Calendar2 , Setting2 } from 
 import { useAppSelector } from '../../../../hooks';
 
 const Navbar : React.FC = () => {
-    const state = useAppSelector(state => state);
+    const { user , mobileUI } = useAppSelector(state => state);
 
     return (
-        <div className={`${state.mobileUI.chatShow ? "hidden" : "flex"} lg:flex flex-col justify-between items-center shadow-xl px-2 py-4 md:p-4`}>
+        <div className={`${mobileUI.chatShow ? "hidden" : "flex"} lg:flex flex-col justify-between items-center shadow-xl px-2 py-4 md:p-4`}>
             <div className="flex flex-col items-center">
                 {
-                    state.user.user?.profile !== "default.png"
+                    user.user?.profile !== "default.png"
                         ? <ProfileDefault />
-                        : <ProfileImage profile={state.user.user?.profile} />
+                        : <ProfileImage profile={user.user?.profile} />
                 }
 
                 <div className="flex flex-col items-center gap-7 mt-14">

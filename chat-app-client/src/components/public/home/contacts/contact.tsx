@@ -4,7 +4,7 @@ import React from 'react';
 const Contact : React.FC = () => {
     return (
         <div className="flex p-3 gap-4 w-full cursor-pointer">
-            <img src="/static/images/Frame 10.png" className="w-12 h-12 rounded-xl object-cover" />
+            <img src="/static/images/Frame 10.png" alt="profile" className="w-12 h-12 rounded-xl object-cover" />
 
             <div className="flex justify-between w-full gap-5">
                 <div>

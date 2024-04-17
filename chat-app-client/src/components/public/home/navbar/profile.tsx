@@ -5,7 +5,7 @@ interface Props {
 }
 export const ProfileImage : React.FC<Props> = ({ profile }) => {
     return (
-        <img src="" className="w-14 h-14 rounded-xl shadow-2xl object-cover"/>
+        <img src="" alt="profile" className="w-14 h-14 rounded-xl shadow-2xl object-cover"/>
     )
 }
 

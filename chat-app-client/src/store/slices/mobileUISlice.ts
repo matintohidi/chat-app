@@ -1,9 +1,14 @@
 // redux dependencies
 import { createSlice , PayloadAction } from "@reduxjs/toolkit";
-import {boolean} from "yup";
+// initial state interface
+interface MobileUiInitialState {
+    chatShow: boolean
+    menuShow: boolean
+}
 
-const initialState: { chatShow: boolean } = {
-    chatShow: false
+const initialState: MobileUiInitialState = {
+    chatShow: false,
+    menuShow: false
 }
 
 const mobileUISlice = createSlice({
@@ -11,6 +16,9 @@ const mobileUISlice = createSlice({
     initialState,
     reducers: {
         setChatDisplay: (state , action: PayloadAction<boolean>) => {
+            state.chatShow = action.payload
+        },
+        setMenuShow: (state , action: PayloadAction<boolean>) => {
             state.chatShow = action.payload
         }
     }
