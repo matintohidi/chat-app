@@ -5,6 +5,7 @@ on:
     paths:
       - "chat-app-client/**"
       - "chat-app-server/**"
+  workflow_dispatch:
 
 jobs:
   update-submodules:
