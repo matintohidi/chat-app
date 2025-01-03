@@ -24,6 +24,10 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+      - name: Test SSH Connection
+        run: |
+          ssh -T git@github.com
+
       - name: Initialize and update submodules
         run: |
           git submodule sync --recursive
