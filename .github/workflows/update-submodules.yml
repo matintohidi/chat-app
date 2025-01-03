@@ -23,9 +23,16 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      # Ensure submodules are updated
+      - name: Update submodules
+        run: |
+          git submodule update --recursive
+
       # Commit and push submodule changes
       - name: Commit and push submodule updates
         run: |
+          git status
+          git diff
           git add chat-app-client chat-app-server
           git commit -m "Update submodules after changes in client or server" || echo "No changes to commit"
           git push
