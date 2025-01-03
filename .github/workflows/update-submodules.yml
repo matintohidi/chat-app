@@ -1,4 +1,4 @@
-name: Update Submodules
+name: Update Submodules Automatically
 
 on:
   push:
@@ -11,28 +11,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the main repository
-      - name: Checkout main repository
+      # Step 1: Checkout repository without submodules initially
+      - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          submodules: recursive
+          submodules: false
 
-      # Configure Git
-      - name: Set up Git
+      # Step 2: Set up SSH for submodule access
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      # Step 3: Initialize and update submodules using SSH
+      - name: Initialize and update submodules
+        run: |
+          git submodule sync --recursive
+          git submodule update --init --recursive
+
+      # Step 4: Configure Git
+      - name: Configure Git
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      # Ensure submodules are updated
-      - name: Update submodules
+      # Step 5: Commit and push changes
+      - name: Commit and push changes
         run: |
-          git submodule update --recursive
-
-      # Commit and push submodule changes
-      - name: Commit and push submodule updates
-        run: |
-          git status
-          git diff
           git add chat-app-client chat-app-server
-          git commit -m "Update submodules after changes in client or server" || echo "No changes to commit"
-          git push
+          git commit -m "Update submodules to latest commit" || echo "No changes to commit"
+          git push origin HEAD
