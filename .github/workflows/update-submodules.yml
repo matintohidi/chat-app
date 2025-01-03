@@ -22,8 +22,14 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+
+      - name: Test SSH
+        run: |
           ls -la ~/.ssh
           cat ~/.ssh/id_rsa
+
+      - name: Set up SSH 2
+        run: |
           eval $(ssh-agent -s)
           ssh-add ~/.ssh/id_rsa
           ssh-keyscan github.com >> ~/.ssh/known_hosts
