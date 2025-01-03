@@ -1,0 +1,31 @@
+name: Update Submodules
+
+on:
+  push:
+    paths:
+      - "chat-app-client/**"
+      - "chat-app-server/**"
+
+jobs:
+  update-submodules:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the main repository
+      - name: Checkout main repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      # Configure Git
+      - name: Set up Git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      # Commit and push submodule changes
+      - name: Commit and push submodule updates
+        run: |
+          git add chat-app-client chat-app-server
+          git commit -m "Update submodules after changes in client or server" || echo "No changes to commit"
+          git push

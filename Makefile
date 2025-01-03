@@ -1,13 +1,11 @@
 init_main_env:
-	@mv .env.example .env
-
-init_main_env:
-	@mv ./chat-app-server/.env.example ./chat-app-server/.env
+	@cp .env.example .env
+	@cp ./chat-app-server/.env.example ./chat-app-server/.env
 	
 default:
 	docker ps
 
-devdown:
+down:
 	docker-compose down
 
 stg:
