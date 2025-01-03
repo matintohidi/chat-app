@@ -1,0 +1,6 @@
+[submodule "chat-app-client"]
+path = chat-app-client
+url = git@github.com:matintohidi/chat-app-client.git
+[submodule "chat-app-server"]
+path = chat-app-server
+url = git@github.com:matintohidi/chat-app-server.git
