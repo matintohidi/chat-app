@@ -37,7 +37,9 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add .
           git commit -m "Update submodules to latest commit" || echo "No changes to commit"
-          git push https://github.com/${{ github.repository }}.git HEAD:${{ github.ref }} --token ${{ secrets.GITHUB_TOKEN }}
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:${{ github.ref }}
