@@ -2,7 +2,7 @@ services:
   # database
   mongodb:
     container_name: chat-app-database
-    image: mongo:5.0
+    image: mongo:8.0
     environment:
       MONGO_INITDB_ROOT_USERNAME: $MONGODB_USERNAME
       MONGO_INITDB_ROOT_PASSWORD: $MONGODB_PASSWORD
